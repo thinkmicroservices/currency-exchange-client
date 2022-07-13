@@ -1,0 +1,46 @@
+server:
+  port: 8080
+  
+  
+info:
+  app:
+    name: Currency Exchange Request Processor
+    description: performs currency exchange 
+    version: 1.0.0
+ 
+spring:
+  application:
+    name: Message Processor
+   
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: think
+    password: microservices
+    automaticRecoveryEnabled: true # automatic reconnect
+    # rabbit template properties
+    template:
+      reply-timeout: 30000
+ 
+  #cloud:
+  #  stream:
+  #    bindings:
+  #      input:
+  #        destination: CurrencyExchangeMessages
+  #        group: CurrencyExchangeGroup
+  #  default:
+  #    contentType: application/json
+  
+
+ # swagger-ui custom path to swagger ui
+springdoc:
+  swagger-ui:
+    path: /swagger/ui.html 
+  #
+  # include actuator in swagger ui
+  #show-actuator: true   
+  packagesToScan: com.thinkmicroservices.currency.exchange.client
+  pathsToMatch : /api/**
+
+
+    
